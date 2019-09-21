@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Parking Genie</string>
+    <string name="login">LOGIN</string>
+    <string name="sign_in">Sign In</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="username_hint">Your Email Address</string>
+    <string name="license_plate">License Plate Number</string>
+    <string name="owner_details">Owner Details</string>
+    <string name="vehicle_details">Vehicle Details</string>
+    <string name="infringement">Infringement Details</string>
+    <string name="date">Date</string>
+    <string name="email">Email Address</string>
+    <string name="description">Description</string>
+
+    <string name="owner_name">Name</string>
+    <string name="owner_surname">Surname</string>
+    <string name="owner_contact">Contact Number</string>
+    <string name="permit_type">Permit Type</string>
+
+    <string name="vehicle_make">Make</string>
+    <string name="vehicle_model">Model</string>
+    <string name="vehicle_color">Color</string>
+
+    <string name="button_call">Call James</string>
+    <string name="button_fine">Issue Fine</string>
+    <string name="button_confirm">Confirm</string>
+    <string name="button_capture">Capture</string>
+    <string name="button_fine2">Confirm Fine</string>
+
+    <string-array name="fineType">
+        <item>Parked on the yellow line</item>
+        <item>Obstructing traffic</item>
+        <item>Incorrect parking bay</item>
+        <item>Parked on the restricted bay</item>
+    </string-array>
+
+</resources>
