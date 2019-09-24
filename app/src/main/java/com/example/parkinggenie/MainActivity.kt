@@ -9,6 +9,9 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.SurfaceHolder
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.red
@@ -35,8 +38,19 @@ class MainActivity : AppCompatActivity() {
 
             if (username.length() > 0 && password.length() > 0) {
                 val intent = Intent(this, ocr_page::class.java)
+                val username = findViewById<EditText>(R.id.username).text
+                val password = findViewById<EditText>(R.id.password).text
+                intent.putExtra("Username", username.toString())
+                intent.putExtra("Password", password.toString())
                 startActivity(intent)
-            } else {
+            } else if (username.length() <= 0){
+                Toast.makeText(applicationContext,"Please enter username",Toast.LENGTH_SHORT).show()
+                username.hint="Please enter username"
+                password.hint="Please enter password"
+                username.setHintTextColor(Color.RED)
+                password.setHintTextColor(Color.RED)
+            } else{
+                Toast.makeText(applicationContext,"Please enter password",Toast.LENGTH_SHORT).show()
                 username.hint="Please enter username"
                 password.hint="Please enter password"
                 username.setHintTextColor(Color.RED)
