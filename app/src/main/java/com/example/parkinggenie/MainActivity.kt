@@ -2,6 +2,7 @@ package com.example.parkinggenie
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
@@ -59,4 +60,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+}
+
+// Extension function to show toast message
+fun Context.toast(message: String) {
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 }

@@ -29,20 +29,11 @@ class ocr_page : AppCompatActivity() {
 
     private val PERMISSION_REQUEST_CAMERA = 100
 
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ocr_page)
 
         startCameraSource()
-
-        confirm.setOnClickListener {
-            val intent = Intent(this, verified_page::class.java)
-            startActivity(intent)
-        }
-
 
         capture.setOnClickListener {
             val license = tv_result.text
@@ -61,7 +52,7 @@ class ocr_page : AppCompatActivity() {
         //  Init camera source to use high resolution and auto focus
         mCameraSource = CameraSource.Builder(applicationContext, textRecognizer)
                 .setFacing(CameraSource.CAMERA_FACING_BACK)
-                .setRequestedPreviewSize(1920, 1080)
+                .setRequestedPreviewSize(1024,768)
                 .setAutoFocusEnabled(true)
                 .setRequestedFps(1.0f)
                 .build()
@@ -180,9 +171,4 @@ class ocr_page : AppCompatActivity() {
         // Finally, display the alert dialog
         dialog.show()
     }
-}
-
-// Extension function to show toast message
-fun Context.toast(message: String) {
-    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 }

@@ -54,7 +54,7 @@
         android:text="@string/owner_name"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.126"
+        app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/owner_details" />
 
@@ -79,7 +79,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/owner_contact"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintHorizontal_bias="0.134"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/owner_surname" />
 
@@ -91,7 +91,7 @@
         android:layout_marginTop="24dp"
         android:text="@string/permit_type"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintHorizontal_bias="0.122"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/owner_contact" />
 
@@ -155,9 +155,93 @@
         android:textColor="#020000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/issue_fine"
-        app:layout_constraintHorizontal_bias="0.661"
+        app:layout_constraintHorizontal_bias="0.658"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vehicle_details"
         app:layout_constraintVertical_bias="0.033" />
+
+    <TextView
+        android:id="@+id/name_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/vehicle_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.338"
+        app:layout_constraintStart_toEndOf="@+id/owner_name"
+        app:layout_constraintTop_toBottomOf="@+id/owner_details"
+        app:layout_constraintVertical_bias="0.203" />
+
+    <TextView
+        android:id="@+id/surname_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/vehicle_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintStart_toEndOf="@+id/owner_surname"
+        app:layout_constraintTop_toBottomOf="@+id/owner_details"
+        app:layout_constraintVertical_bias="0.421" />
+
+    <TextView
+        android:id="@+id/contact_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/vehicle_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.115"
+        app:layout_constraintStart_toEndOf="@+id/owner_contact"
+        app:layout_constraintTop_toBottomOf="@+id/owner_details"
+        app:layout_constraintVertical_bias="0.619" />
+
+    <TextView
+        android:id="@+id/permit_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/vehicle_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.224"
+        app:layout_constraintStart_toEndOf="@+id/permit_type"
+        app:layout_constraintTop_toBottomOf="@+id/owner_details"
+        app:layout_constraintVertical_bias="0.837" />
+
+    <TextView
+        android:id="@+id/make_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.315"
+        app:layout_constraintStart_toEndOf="@+id/vehicle_make"
+        app:layout_constraintTop_toBottomOf="@+id/vehicle_details"
+        app:layout_constraintVertical_bias="0.144" />
+
+    <TextView
+        android:id="@+id/model_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.304"
+        app:layout_constraintStart_toEndOf="@+id/vehicle_model"
+        app:layout_constraintTop_toBottomOf="@+id/vehicle_details"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <TextView
+        android:id="@+id/color_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.317"
+        app:layout_constraintStart_toEndOf="@+id/vehicle_color"
+        app:layout_constraintTop_toBottomOf="@+id/vehicle_details"
+        app:layout_constraintVertical_bias="0.456" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
