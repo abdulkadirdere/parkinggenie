@@ -95,7 +95,7 @@ class ocr_page : AppCompatActivity() {
                     for (i in 0 until items.size()) {
                         val item = items.valueAt(i)
                         stringBuilder.append(item.value)
-                        stringBuilder.append("\n")
+//                        stringBuilder.append("\n")
                     }
                     tv_result.text = stringBuilder.toString()
                 }
@@ -150,11 +150,47 @@ class ocr_page : AppCompatActivity() {
             }
         }
 
+        var name_field = "name"
+        var surname_field = "surname"
+        var contact_number = "number"
+        var permit_type = "permit"
+        var make = "make"
+        var model = "model"
+        var color = "color"
+
+
 
         // Set the alert dialog positive/yes button
         builder.setPositiveButton("Confirm"){ _, _ ->
             val intent = Intent(this, verified_page::class.java)
+            Log.d("TAG",license)
+
+            if (license == "1988"){
+                name_field = "James"
+                surname_field = "Doe"
+                contact_number = "0721231234"
+                permit_type="Resident"
+                make="Volkswagen"
+                model="Golf"
+                color="White"
+            } else {
+                name_field = "Jane"
+                surname_field = "Smith"
+                contact_number = "0812341234"
+                permit_type="Visitor"
+                make="Mercedes"
+                model="C200"
+                color="Red"
+            }
+
             intent.putExtra("license", license)
+            intent.putExtra("name_field", name_field)
+            intent.putExtra("surname_field", surname_field)
+            intent.putExtra("contact_number", contact_number)
+            intent.putExtra("permit_type", permit_type)
+            intent.putExtra("make", make)
+            intent.putExtra("model", model)
+            intent.putExtra("color", color)
             startActivity(intent)
         }
 
@@ -170,5 +206,11 @@ class ocr_page : AppCompatActivity() {
 
         // Finally, display the alert dialog
         dialog.show()
+    }
+
+    private fun check_number_plate(license:String){
+
+
+
     }
 }

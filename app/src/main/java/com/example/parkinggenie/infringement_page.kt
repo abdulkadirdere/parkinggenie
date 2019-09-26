@@ -26,9 +26,9 @@ class infringement_page : AppCompatActivity() {
         license_plate3.text = license
 
         // get email address
-//        val email: String? = intent.getStringExtra("email")
-//        Log.d("TAG",email)
-//        email_address.text = email
+        val email: String? = intent.getStringExtra("email_add")
+        Log.d("TAG",email)
+        email_address.text = email
 
         // set local date and time
         val current = LocalDateTime.now()

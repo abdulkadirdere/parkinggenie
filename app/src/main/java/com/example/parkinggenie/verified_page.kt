@@ -28,9 +28,36 @@ class verified_page : AppCompatActivity() {
         Log.d("TAG",license)
         license_plate.text = license
 
+        val name: String? = intent.getStringExtra("name_field")
+        val surname: String? = intent.getStringExtra("surname_field")
+        val contact: String? = intent.getStringExtra("contact_number")
+        val permit: String? = intent.getStringExtra("permit_type")
+        val carMake: String? = intent.getStringExtra("make")
+        val carModel: String? = intent.getStringExtra("model")
+        val carColor: String? = intent.getStringExtra("color")
+
+        name_field.text = name
+        surname_field.text = surname
+        contact_field.text = contact
+        permit_field.text = permit
+        make_field.text = carMake
+        model_field.text = carModel
+        color_field.text = carColor
+
+        var email_add = "email"
+
+
+        if (license == "1988"){
+            email_add = "james.doe@gmail.com"
+        } else {
+            email_add = "jane.smith@gmail.com"
+        }
+
+
         issue_fine.setOnClickListener {
             val intent = Intent(this, infringement_page::class.java)
             intent.putExtra("license", license)
+            intent.putExtra("email_add", email_add)
             startActivity(intent)
         }
 

@@ -22,6 +22,7 @@
         <activity android:name=".infringement_page"></activity>
         <activity android:name=".verified_page" />
         <activity android:name=".ocr_page"/>
+        <activity android:name=".unverified_page" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
