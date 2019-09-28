@@ -11,7 +11,7 @@
     <string name="infringement">Infringement Details</string>
     <string name="date">Date</string>
     <string name="email">Email Address</string>
-    <string name="description">Description</string>
+    <string name="description">Offence Type:</string>
 
     <string name="owner_name">Name</string>
     <string name="owner_surname">Surname</string>
@@ -22,7 +22,7 @@
     <string name="vehicle_model">Model</string>
     <string name="vehicle_color">Color</string>
 
-    <string name="button_call">Call James</string>
+    <string name="button_call">Call</string>
     <string name="button_fine">Issue Fine</string>
     <string name="button_confirm">Confirm</string>
     <string name="button_capture">Capture</string>

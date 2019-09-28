@@ -42,7 +42,7 @@ class Forgot_password : AppCompatActivity() {
 
         builder.setTitle("Forgot Password?")
 
-        builder.setMessage(email)
+        builder.setMessage("Password reset request will be sent to $email")
 
         // Set the alert dialog positive/yes button
         builder.setPositiveButton("Confirm") { _, _ ->

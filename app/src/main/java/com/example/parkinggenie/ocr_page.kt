@@ -163,7 +163,7 @@ class ocr_page : AppCompatActivity() {
             Log.d("TAG", license)
             intent.putExtra("license", license)
 
-            if (license == "SafeZone") {
+            if (license == "Hello World!") {
                 name_field = "James"
                 surname_field = "Doe"
                 contact_number = "0721231234"
@@ -180,7 +180,7 @@ class ocr_page : AppCompatActivity() {
                 intent.putExtra("model", model)
                 intent.putExtra("color", color)
                 startActivity(intent)
-            } else { //if (license == "any"){
+            } else if (license == "HM11GP"){
                 name_field = "Jane"
                 surname_field = "Smith"
                 contact_number = "0812341234"
@@ -197,23 +197,13 @@ class ocr_page : AppCompatActivity() {
                 intent.putExtra("model", model)
                 intent.putExtra("color", color)
                 startActivity(intent)
-//            } else {
-//                val intent2 = Intent(this, unverified_page::class.java)
-//                intent.putExtra("license", license)
-//                Log.d("TAG2",license)
-//                startActivity(intent2)
-//            }
-
-//            intent.putExtra("license", license)
-//            intent.putExtra("name_field", name_field)
-//            intent.putExtra("surname_field", surname_field)
-//            intent.putExtra("contact_number", contact_number)
-//            intent.putExtra("permit_type", permit_type)
-//            intent.putExtra("make", make)
-//            intent.putExtra("model", model)
-//            intent.putExtra("color", color)
-//            startActivity(intent)
+            } else {
+                val intent2 = Intent(this, unverified_page::class.java)
+                intent2.putExtra("license", license)
+                Log.d("TAG2",license)
+                startActivity(intent2)
             }
+
         }
 
         // Set the alert dialog negative/no button

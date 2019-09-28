@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.AbsSpinner
 import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_infringement_page.*
 import java.time.LocalDateTime
@@ -32,13 +33,16 @@ class infringement_page : AppCompatActivity() {
         val formatted = current.format(formatter)
         currentDate.text = formatted
 
+        // get spinner value
+        val spinner = spinner.selectedItem.toString()
+
         confirm_fine.setOnClickListener {
-            showDialog(license.toString())
+            showDialog(license.toString(), formatted.toString(), spinner)
         }
     }
 
     // Method to show an alert dialog with yes, no and cancel button
-    private fun showDialog(license : String) {
+    private fun showDialog(license : String, formatted: String, spinner: String) {
         // Late initialize an alert dialog object
         lateinit var dialog: AlertDialog
 
@@ -48,13 +52,11 @@ class infringement_page : AppCompatActivity() {
 
         builder.setTitle("Issue Fine")
 
-        builder.setMessage(license)
+        builder.setMessage("Fine will be issued to $license\n on $formatted.\n Reason: $spinner")
 
         // On click listener for dialog buttons
         val dialogClickListener = DialogInterface.OnClickListener { _, which ->
             when (which) {
-                DialogInterface.BUTTON_POSITIVE -> toast("Fined issued")
-//                DialogInterface.BUTTON_NEGATIVE -> toast("Recapture the number plate")
                 DialogInterface.BUTTON_NEUTRAL -> toast("Action Cancelled")
             }
         }
@@ -62,12 +64,10 @@ class infringement_page : AppCompatActivity() {
 
         // Set the alert dialog positive/yes button
         builder.setPositiveButton("Confirm"){ _, _ ->
+            toast("Fined issued")
             val intent = Intent(this, ocr_page::class.java)
             startActivity(intent)
         }
-
-//        // Set the alert dialog negative/no button
-//        builder.setNegativeButton("Recapture", dialogClickListener)
 
         // Set the alert dialog neutral/cancel button
         builder.setNeutralButton("Cancel", dialogClickListener)

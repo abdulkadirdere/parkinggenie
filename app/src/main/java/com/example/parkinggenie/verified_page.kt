@@ -25,13 +25,15 @@ class verified_page : AppCompatActivity() {
         Log.d("TAG",license)
         license_plate.text = license
 
-        val name: String? = intent.getStringExtra("name_field")
+        val name: String = intent.getStringExtra("name_field")
         val surname: String? = intent.getStringExtra("surname_field")
         val contact: String? = intent.getStringExtra("contact_number")
         val permit: String? = intent.getStringExtra("permit_type")
         val carMake: String? = intent.getStringExtra("make")
         val carModel: String? = intent.getStringExtra("model")
         val carColor: String? = intent.getStringExtra("color")
+
+        call.text = "CALL ${name.capitalize()}"
 
         name_field.text = name
         surname_field.text = surname

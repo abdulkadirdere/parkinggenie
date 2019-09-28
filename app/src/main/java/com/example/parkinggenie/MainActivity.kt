@@ -34,16 +34,10 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             } else if (username.length() <= 0){
                 Toast.makeText(applicationContext,"Please enter username",Toast.LENGTH_SHORT).show()
-                username.hint="Please enter username"
-                password.hint="Please enter password"
-                username.setHintTextColor(Color.RED)
-                password.setHintTextColor(Color.RED)
+                showHint()
             } else{
                 Toast.makeText(applicationContext,"Please enter password",Toast.LENGTH_SHORT).show()
-                username.hint="Please enter username"
-                password.hint="Please enter password"
-                username.setHintTextColor(Color.RED)
-                password.setHintTextColor(Color.RED)
+                showHint()
             }
         }
     }
@@ -57,6 +51,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun showHint(){
+        username.hint="Please enter username"
+        password.hint="Please enter password"
+        username.setHintTextColor(Color.RED)
+        password.setHintTextColor(Color.RED)
+    }
 }
 
 // Extension function to show toast message
