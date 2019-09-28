@@ -2,15 +2,12 @@ package com.example.parkinggenie
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.SurfaceHolder
-import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -123,7 +120,7 @@ class ocr_page : AppCompatActivity() {
             if (isCameraPermissionGranted()) {
                 mCameraSource.start(surface_camera_preview.holder)
             } else {
-
+                toast("Please grant permission to continue")
             }
         }
     }
@@ -137,14 +134,14 @@ class ocr_page : AppCompatActivity() {
         // Initialize a new instance of alert dialog builder object
         val builder = AlertDialog.Builder(this)
 
-        builder.setTitle("Recognised License Number Plate")
+        builder.setTitle("Recognised Number Plate")
 
         builder.setMessage(license)
 
         // On click listener for dialog buttons
         val dialogClickListener = DialogInterface.OnClickListener { _, which ->
             when (which) {
-                DialogInterface.BUTTON_POSITIVE -> toast("Verifying the license plate")
+                DialogInterface.BUTTON_POSITIVE -> toast("Verifying the number plate")
                 DialogInterface.BUTTON_NEGATIVE -> toast("Recapture the number plate")
                 DialogInterface.BUTTON_NEUTRAL -> toast("Action Cancelled")
             }
@@ -161,37 +158,62 @@ class ocr_page : AppCompatActivity() {
 
 
         // Set the alert dialog positive/yes button
-        builder.setPositiveButton("Confirm"){ _, _ ->
+        builder.setPositiveButton("Confirm") { _, _ ->
             val intent = Intent(this, verified_page::class.java)
-            Log.d("TAG",license)
+            Log.d("TAG", license)
+            intent.putExtra("license", license)
 
-            if (license == "1988"){
+            if (license == "SafeZone") {
                 name_field = "James"
                 surname_field = "Doe"
                 contact_number = "0721231234"
-                permit_type="Resident"
-                make="Volkswagen"
-                model="Golf"
-                color="White"
-            } else {
+                permit_type = "Resident"
+                make = "Volkswagen"
+                model = "Golf"
+                color = "White"
+
+                intent.putExtra("name_field", name_field)
+                intent.putExtra("surname_field", surname_field)
+                intent.putExtra("contact_number", contact_number)
+                intent.putExtra("permit_type", permit_type)
+                intent.putExtra("make", make)
+                intent.putExtra("model", model)
+                intent.putExtra("color", color)
+                startActivity(intent)
+            } else { //if (license == "any"){
                 name_field = "Jane"
                 surname_field = "Smith"
                 contact_number = "0812341234"
-                permit_type="Visitor"
-                make="Mercedes"
-                model="C200"
-                color="Red"
-            }
+                permit_type = "Visitor"
+                make = "Mercedes"
+                model = "C200"
+                color = "Red"
+                intent.putExtra("license", license)
+                intent.putExtra("name_field", name_field)
+                intent.putExtra("surname_field", surname_field)
+                intent.putExtra("contact_number", contact_number)
+                intent.putExtra("permit_type", permit_type)
+                intent.putExtra("make", make)
+                intent.putExtra("model", model)
+                intent.putExtra("color", color)
+                startActivity(intent)
+//            } else {
+//                val intent2 = Intent(this, unverified_page::class.java)
+//                intent.putExtra("license", license)
+//                Log.d("TAG2",license)
+//                startActivity(intent2)
+//            }
 
-            intent.putExtra("license", license)
-            intent.putExtra("name_field", name_field)
-            intent.putExtra("surname_field", surname_field)
-            intent.putExtra("contact_number", contact_number)
-            intent.putExtra("permit_type", permit_type)
-            intent.putExtra("make", make)
-            intent.putExtra("model", model)
-            intent.putExtra("color", color)
-            startActivity(intent)
+//            intent.putExtra("license", license)
+//            intent.putExtra("name_field", name_field)
+//            intent.putExtra("surname_field", surname_field)
+//            intent.putExtra("contact_number", contact_number)
+//            intent.putExtra("permit_type", permit_type)
+//            intent.putExtra("make", make)
+//            intent.putExtra("model", model)
+//            intent.putExtra("color", color)
+//            startActivity(intent)
+            }
         }
 
         // Set the alert dialog negative/no button
@@ -206,11 +228,5 @@ class ocr_page : AppCompatActivity() {
 
         // Finally, display the alert dialog
         dialog.show()
-    }
-
-    private fun check_number_plate(license:String){
-
-
-
     }
 }

@@ -3,13 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.parkinggenie">
 
-
-    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <meta-data
+        android:name="com.google.android.gms.vision.DEPENDENCIES"
+        android:value="ocr" />
 
     <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.CAMERA" />
-
-
 
     <application
         android:allowBackup="true"
@@ -19,9 +20,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".infringement_page"></activity>
+        <activity android:name=".Forgot_password"></activity>
+        <activity android:name=".infringement_page" />
         <activity android:name=".verified_page" />
-        <activity android:name=".ocr_page"/>
+        <activity android:name=".ocr_page" />
         <activity android:name=".unverified_page" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -31,9 +33,5 @@
             </intent-filter>
         </activity>
     </application>
-
-    <meta-data
-        android:name="com.google.android.gms.vision.DEPENDENCIES"
-        android:value="ocr" />
 
 </manifest>

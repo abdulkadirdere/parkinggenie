@@ -1,28 +1,15 @@
 package com.example.parkinggenie
 
-import android.Manifest
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Color
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.SurfaceHolder
-import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.red
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.properties.Delegates
-import com.google.android.gms.vision.CameraSource
-import com.google.android.gms.vision.Detector
-import com.google.android.gms.vision.MultiProcessor
-import com.google.android.gms.vision.text.TextBlock
-import com.google.android.gms.vision.text.TextRecognizer
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -32,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         login()
+        forgotPassword()
     }
 
     private fun login() {
@@ -57,6 +45,15 @@ class MainActivity : AppCompatActivity() {
                 username.setHintTextColor(Color.RED)
                 password.setHintTextColor(Color.RED)
             }
+        }
+    }
+
+    private fun forgotPassword(){
+
+        val forgot = findViewById<TextView>(R.id.forgot_password)
+        forgot.setOnClickListener {
+            val intent = Intent(this, Forgot_password::class.java)
+            startActivity(intent)
         }
     }
 

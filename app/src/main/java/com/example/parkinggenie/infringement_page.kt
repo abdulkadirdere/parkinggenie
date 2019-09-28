@@ -1,17 +1,13 @@
 package com.example.parkinggenie
 
-import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_infringement_page.*
 import java.time.LocalDateTime
-import kotlinx.android.synthetic.main.activity_ocr_page.*
-import kotlinx.android.synthetic.main.activity_verified_page.*
 import java.time.format.DateTimeFormatter
 
 class infringement_page : AppCompatActivity() {

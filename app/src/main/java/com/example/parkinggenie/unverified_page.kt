@@ -3,23 +3,28 @@ package com.example.parkinggenie
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.unverified_page.*
+import kotlinx.android.synthetic.main.activity_unverified.*
 
 
-class unverified_page : AppCompatActivity(){
+class unverified_page : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.unverified_page)
+        setContentView(R.layout.activity_unverified)
 
-        // get license number
         val license: String? = intent.getStringExtra("license")
-        Log.d("TAG",license)
+//        Log.d("TAG",license)
         unverified_license.text = license
 
-        reason.text = "Unrecognised number plate. Please inform the security."
+        okay()
+    }
 
-        val intent = Intent(this, ocr_page::class.java)
-        startActivity(intent)
+    private fun okay() {
+        ok_button.setOnClickListener {
+            val intent = Intent(this, ocr_page::class.java)
+            startActivity(intent)
+        }
     }
 }

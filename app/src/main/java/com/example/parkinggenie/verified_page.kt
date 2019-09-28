@@ -5,12 +5,9 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_ocr_page.*
 import kotlinx.android.synthetic.main.activity_verified_page.*
 import android.net.Uri
 import android.util.Log
-import android.widget.EditText
-import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
