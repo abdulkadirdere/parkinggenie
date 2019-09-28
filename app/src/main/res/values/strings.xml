@@ -29,6 +29,7 @@
     <string name="button_fine2">Confirm Fine</string>
 
     <string name="unverified_reason">Unrecognised number plate. Please inform the security.</string>
+    <string name="manual_capture">Capture Number Plate Manually</string>
 
     <string-array name="fineType">
         <item>Parked on the yellow line</item>

@@ -21,7 +21,7 @@
         android:id="@+id/tv_result"
         android:layout_width="351dp"
         android:layout_height="46dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="32dp"
         android:layout_weight="1"
         android:gravity="center"
         android:text="Hello World!"
@@ -30,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/surface_camera_preview"
-        app:layout_constraintVertical_bias="0.028" />
+        app:layout_constraintVertical_bias="0.112" />
 
     <Button
         android:id="@+id/capture"
@@ -45,5 +45,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_result"
         app:layout_constraintVertical_bias="0.257" />
+
+    <TextView
+        android:id="@+id/manuallyCapture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:text="@string/manual_capture"
+        android:textColor="@color/secondary_blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/capture"
+        app:layout_constraintVertical_bias="0.382" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

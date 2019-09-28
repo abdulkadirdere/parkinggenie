@@ -7,7 +7,10 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.SurfaceHolder
+import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -16,6 +19,7 @@ import com.google.android.gms.vision.Detector
 import com.google.android.gms.vision.text.TextBlock
 import com.google.android.gms.vision.text.TextRecognizer
 import kotlinx.android.synthetic.main.activity_ocr_page.*
+import kotlinx.android.synthetic.main.dialog_manual.view.*
 import kotlin.properties.Delegates
 
 
@@ -37,6 +41,8 @@ class ocr_page : AppCompatActivity() {
             showDialog(license.toString())
             print(license)
         }
+
+        manualCapture()
 
     }
 
@@ -218,5 +224,85 @@ class ocr_page : AppCompatActivity() {
 
         // Finally, display the alert dialog
         dialog.show()
+    }
+
+
+    private fun manualCapture(){
+        manuallyCapture.setOnClickListener {
+            val mDialogView = LayoutInflater.from(this).inflate(R.layout.dialog_manual, null)
+
+            // On click listener for dialog buttons
+            val dialogClickListener = DialogInterface.OnClickListener { _, which ->
+                when (which) {
+                    DialogInterface.BUTTON_POSITIVE -> toast("")
+                    DialogInterface.BUTTON_NEUTRAL -> toast("")
+                }
+            }
+
+            var name_field = "name"
+            var surname_field = "surname"
+            var contact_number = "number"
+            var permit_type = "permit"
+            var make = "make"
+            var model = "model"
+            var color = "color"
+
+            val mBuilder = AlertDialog.Builder(this)
+                .setView(mDialogView)
+                .setTitle("Manual Number Plate")
+                .setPositiveButton("Confirm") { _, _ ->
+
+                    var license = mDialogView.manual_license.text.toString()
+
+
+                    val intent = Intent(this, verified_page::class.java)
+                    Log.d("TAG", license)
+                    intent.putExtra("license", license)
+
+                    if (license == "Hello World!") {
+                        name_field = "James"
+                        surname_field = "Doe"
+                        contact_number = "0721231234"
+                        permit_type = "Resident"
+                        make = "Volkswagen"
+                        model = "Golf"
+                        color = "White"
+
+                        intent.putExtra("name_field", name_field)
+                        intent.putExtra("surname_field", surname_field)
+                        intent.putExtra("contact_number", contact_number)
+                        intent.putExtra("permit_type", permit_type)
+                        intent.putExtra("make", make)
+                        intent.putExtra("model", model)
+                        intent.putExtra("color", color)
+                        startActivity(intent)
+                    } else if (license == "HM11GP"){
+                        name_field = "Jane"
+                        surname_field = "Smith"
+                        contact_number = "0812341234"
+                        permit_type = "Visitor"
+                        make = "Mercedes"
+                        model = "C200"
+                        color = "Red"
+                        intent.putExtra("license", license)
+                        intent.putExtra("name_field", name_field)
+                        intent.putExtra("surname_field", surname_field)
+                        intent.putExtra("contact_number", contact_number)
+                        intent.putExtra("permit_type", permit_type)
+                        intent.putExtra("make", make)
+                        intent.putExtra("model", model)
+                        intent.putExtra("color", color)
+                        startActivity(intent)
+                    } else {
+                        val intent2 = Intent(this, unverified_page::class.java)
+                        intent2.putExtra("license", license)
+                        Log.d("TAG2",license)
+                        startActivity(intent2)
+                    }
+
+                }
+                .setNeutralButton("Cancel",dialogClickListener)
+            val mAlertDialog = mBuilder.show()
+        }
     }
 }
