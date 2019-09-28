@@ -33,10 +33,11 @@ class infringement_page : AppCompatActivity() {
         val formatted = current.format(formatter)
         currentDate.text = formatted
 
-        // get spinner value
-        val spinner = spinner.selectedItem.toString()
 
         confirm_fine.setOnClickListener {
+            // get spinner value
+            var spinner = spinner.selectedItem.toString()
+            Log.d("TAG3",spinner)
             showDialog(license.toString(), formatted.toString(), spinner)
         }
     }
