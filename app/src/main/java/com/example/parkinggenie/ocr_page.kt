@@ -259,10 +259,10 @@ class ocr_page : AppCompatActivity() {
                     Log.d("TAG", license)
                     intent.putExtra("license", license)
 
-                    if (license == "Hello World!") {
-                        name_field = "James"
-                        surname_field = "Doe"
-                        contact_number = "0721231234"
+                    if (license == "HM11GP") {
+                        name_field = "Jared"
+                        surname_field = "Naidoo"
+                        contact_number = "0796600458"
                         permit_type = "Resident"
                         make = "Volkswagen"
                         model = "Golf"
@@ -276,7 +276,7 @@ class ocr_page : AppCompatActivity() {
                         intent.putExtra("model", model)
                         intent.putExtra("color", color)
                         startActivity(intent)
-                    } else if (license == "HM11GP"){
+                    } else if (license == "Hello World!"){
                         name_field = "Jane"
                         surname_field = "Smith"
                         contact_number = "0812341234"

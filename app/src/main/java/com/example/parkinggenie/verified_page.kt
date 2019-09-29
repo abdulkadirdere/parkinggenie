@@ -46,10 +46,12 @@ class verified_page : AppCompatActivity() {
         var email_add = "email"
 
 
-        if (license == "1988"){
-            email_add = "james.doe@gmail.com"
-        } else {
+        if (license == "HM11GP"){
+            email_add = "jared.naidoo@gmail.com"
+        } else if (license == "Hello World!"){
             email_add = "jane.smith@gmail.com"
+        } else {
+            email_add = "james.hunt@gmail.com"
         }
 
 
@@ -61,7 +63,6 @@ class verified_page : AppCompatActivity() {
         }
 
 
-        val phoneNumber = "072 123 1234"
         call.setOnClickListener {
             if (ContextCompat.checkSelfPermission(this,
                             Manifest.permission.CALL_PHONE)
@@ -75,7 +76,7 @@ class verified_page : AppCompatActivity() {
             } else {
                 // Permission has already been granted
                 val callIntent = Intent(Intent.ACTION_CALL)
-                callIntent.data = Uri.parse("tel:$phoneNumber")
+                callIntent.data = Uri.parse("tel:$contact")
                 startActivity(callIntent)
             }
         }
